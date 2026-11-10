@@ -141,29 +141,3 @@ test('TEST-11-FEED-A-CAT-SCREENSHOT', async ({ page }) => {
     
     await expect(page.locator('body')).toHaveScreenshot();
 });
-
-// test('DEFECT1-GREET-A-CAT', async ({ page }) => {
-//     await page.evaluate(() => {
-//         document.cookie = "1=true";
-//     });
-//     await page.reload(); 
-//     await page.getByRole('link', { name: 'Greet-A-Cat' }).click();
-//     await expect(page.getByText('Meow!Meow!', { exact: true })).toBeVisible();
-// });
-
-// test('DEFECT2-GREET-A-CAT-WITH-NAME', async ({ page }) => {
-//     await page.evaluate(() => {
-//         document.cookie = "1=true";
-//     });
-//     await page.reload(); 
-
-//     await page.goto(`${appUrl}greet-a-cat/Jennyanydots`);
-//     await expect(page.getByText('Jennyanydots is not here.')).toBeVisible();
-// });
-
-// test('DEFECT3-CATALOG', async ({ page }) => { 
-//     await page.getByRole('link', { name: 'Feed-A-Cat' }).click();
-//     await page.getByRole('textbox', { name: 'Number of catnips to feed:' }).fill('9999999999999999');
-//     await page.getByRole('button', { name: 'Feed' }).click();
-//     await expect(page.getByText('Nom, nom, nom.')).toBeVisible({ timeout: 10_000 });
-// });
