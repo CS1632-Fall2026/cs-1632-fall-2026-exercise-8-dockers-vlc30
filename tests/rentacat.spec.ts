@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { execSync } from 'child_process';
 
 const appUrl = 'http://localhost:8080/';
 //const appUrl = 'https://cs1632.appspot.com/';
@@ -19,6 +20,17 @@ test.beforeEach(async ({ page }) => {
 });
 
 // TODO: Fill in with test cases.
+test('TEST-0-wait-for-webserver', async ({  }) => {
+    try {
+    // Executes the script. Adjust the path to where your script is located.
+      execSync('bash ./wait-for-webserver.sh', { stdio: 'inherit', timeout: 300000  });
+      console.log('Webserver is ready!');
+      
+    } catch (error) {
+    console.error('Failed to verify webserver status:', error);
+    throw error; // Fails the test suite if the script fails
+  }
+});
 
 test('TEST-1-RESET', async ({ page }) => { 
     await page.evaluate(() => {
