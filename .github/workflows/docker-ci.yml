@@ -31,7 +31,9 @@ jobs:
         uses: docker/setup-buildx-action@v4
 
       - name: Launch Web Service
-        run: docker compose up -d
+        run: docker compose up -d --wait --wait-timeout 180
+          curl --fail --silent --show-error http://localhost:8080/ > /dev/null
+
 
       - name: Run Playwright Tests
         run: npx playwright test --project=chromium
